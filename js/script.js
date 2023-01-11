@@ -18,39 +18,39 @@ console.log("VUE OK", Vue);
 // 1- oltre al click sul pulsante, intercettare anche il tasto ENTER per aggiungere il task alla lista
 // 2- cliccando sul testo dell'item, invertire il valore della proprietà done del task corrispondente (se done era uguale a false, impostare true e viceversa)
 
-const tasks = [
-  {
-    text: "Fare la spesa",
-    done: true,
-  },
-  {
-    text: "Passare l'aspirapolvere",
-    done: false,
-  },
-  {
-    text: "Portare il cane a spasso",
-    done: false,
-  },
-  {
-    text: "Cucinare",
-    done: false,
-  },
-  {
-    text: "Programmare",
-    done: false,
-  },
-];
-
 const app = Vue.createApp({
   data() {
     return {
-      tasks,
+      tasks: [
+        {
+          text: "Fare la spesa",
+          done: true,
+        },
+        {
+          text: "Passare l'aspirapolvere",
+          done: false,
+        },
+        {
+          text: "Portare il cane a spasso",
+          done: false,
+        },
+        {
+          text: "Cucinare",
+          done: false,
+        },
+        {
+          text: "Programmare",
+          done: false,
+        },
+      ],
       newTask: "",
     };
   },
   methods: {
     addTask() {
-      this.tasks[text].push(this.newTask);
+      let taskToAdd = { text: this.newTask, done: false };
+      this.tasks.push(taskToAdd);
+      this.newTask = "";
     },
     deleteTask(index) {
       this.tasks.splice(index, 1);
