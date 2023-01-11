@@ -48,9 +48,15 @@ const app = Vue.createApp({
   },
   methods: {
     addTask() {
-      let taskToAdd = { text: this.newTask, done: false };
-      this.tasks.push(taskToAdd);
-      this.newTask = "";
+      let taskToAdd = {
+        text: this.newTask.replace(/  +/g, " "),
+        done: false,
+      };
+      if (this.newTask.trim()) {
+        console.log("NEW TASK", this.newTask);
+        this.tasks.push(taskToAdd);
+        this.newTask = "";
+      }
     },
     deleteTask(index) {
       this.tasks.splice(index, 1);
