@@ -47,7 +47,8 @@
           <li
             v-for="(task, i) in tasks"
             class="list-group-item d-flex justify-content-between"
-            aria-current="true"
+            :class="{'done' : task.done}"
+            @click="doneTask(i)"
           >
             {{ task.text }}
             <button
