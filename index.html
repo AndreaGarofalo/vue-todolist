@@ -26,11 +26,12 @@
       <main id="root">
         <div class="input-group mb-3">
           <input
+            @keyup.enter="addTask"
             v-model="newTask"
             type="text"
             class="form-control"
-            placeholder="Aggiungi task"
-            aria-label="Aggiungi task"
+            placeholder="Aggiungi cose da fare"
+            aria-label="Aggiungi cose da fare"
             aria-describedby="button-addon2"
           />
           <button
